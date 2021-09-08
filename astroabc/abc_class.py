@@ -5,7 +5,7 @@
 import numpy as np
 import scipy.stats
 import sys
-from sklearn.covariance import GraphLassoCV, ledoit_wolf
+from sklearn.covariance import GraphicalLassoCV, ledoit_wolf
 #import os
 #sys.path.append(os.getcwd())
 
