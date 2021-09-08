@@ -149,6 +149,7 @@ class ABC_class(object):
 
                 self.unpack_priors(priors)
                 self.end_sampling = False
+                self.samples = []
 
                 if self.verbose and self.parallel.master==0:
                         print_header(npart,niter,self.tol_type,tlevels,priors)
@@ -291,6 +292,7 @@ class ABC_class(object):
                         print("\t Step:",t,"\t tol:",self.tol[t],"\t Params:",[np.mean(self.theta[t][:,ii]) for ii in range(self.nparam)])
                 if self.adapt_t and t <self.niter-1:
                         self.tol[t+1]=self.iteratively_adapt(t)
+                self.samples.append([np.mean(self.theta[t][:,ii]) for ii in range(self.nparam)])
                 return t+1
 
 
